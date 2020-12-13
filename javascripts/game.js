@@ -7160,7 +7160,10 @@ function updateInfPower() {
 	if (player.currentEternityChall == "eterc7") document.getElementById("infPowPerSec").textContent = "You are getting " +shortenDimensions(DimensionProduction(1))+" Seventh Dimensions per second."
 	else {
 		let r = DimensionProduction(1)
-		if (player.pSac != undefined) r = r.div(getEC12Mult())
+		if (player.pSac != undefined) {
+			r = r.plus(DimensionProduction(2))
+			r = r.div(getEC12Mult())
+		}
 		document.getElementById("infPowPerSec").textContent = "You are getting " + shortenDimensions(r) + " Infinity Power per second."
 	}
 }
@@ -8402,7 +8405,11 @@ function dimensionPageTabsUpdating(){
 }
 
 function otherDimsUpdating(diff){
-	if (player.currentEternityChall !== "eterc7") player.infinityPower = player.infinityPower.plus(DimensionProduction(1).times(diff))
+	if (player.currentEternityChall !== "eterc7") {
+		var InfinityProduction = DimensionProduction(1)
+		if (player.pSac !== undefined) InfinityProduction = InfinityProduction.plus(DimensionProduction(2))
+		player.infinityPower = player.infinityPower.plus(InfinityProduction.times(diff))
+	}
    	else if (!inNC(4) && player.currentChallenge !== "postc1") player.seventhAmount = player.seventhAmount.plus(DimensionProduction(1).times(diff))
 
    	if (player.currentEternityChall == "eterc7") player.infinityDimension8.amount = player.infinityDimension8.amount.plus(getTimeDimensionProduction(1).times(diff))
