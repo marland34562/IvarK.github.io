@@ -5,7 +5,7 @@ function getGSAmount(offset=0) {
 	let z = getGSDimboostExp(galaxies)
 	let resetMult = player.resets
 	if (player.aarexModifications.ngmX > 3) resetMult = resetMult + player.tdBoosts / 2 - 1
-	resetMult -= inNC(4) ? 2 : 4
+	resetMult -= (inNC(4) || player.pSac !== undefined) ? 2 : 4
 	if (player.tickspeedBoosts !== undefined) resetMult = (resetMult + 1) / 2
 	let exp = getD8Exp()
 	let div2 = 50

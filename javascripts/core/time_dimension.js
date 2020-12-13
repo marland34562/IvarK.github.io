@@ -185,7 +185,7 @@ function updateTimeDimensions() {
 function updateTimeShards() {
 	let p = getTimeDimensionProduction(1)
 	if (player.pSac !== undefined) {
-		p += getTimeDimensionProduction(2)
+		p = p.plus(getTimeDimensionProduction(2))
 		p = p.div(getEC12Mult())
 	}
 	document.getElementById("itmult").textContent = tmp.ngp3 && player.achievements.includes('r105') ? 'Your "Infinite Time" multiplier is currently ' + shorten(tmp.it) + 'x.':''

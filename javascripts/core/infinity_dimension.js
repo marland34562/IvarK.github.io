@@ -349,7 +349,7 @@ function updateInfPower() {
 	else {
 		let r = DimensionProduction(1)
 		if (player.pSac != undefined) {
-			r += DimensionProduction(2)
+			r = r.plus(DimensionProduction(2))
 			r = r.div(getEC12Mult())
 		}
 		document.getElementById("infPowPerSec").textContent = "You are getting " + shortenDimensions(r) + " Infinity Power per second."

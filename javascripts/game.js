@@ -5231,13 +5231,19 @@ function dimensionPageTabsUpdating(){
 }
 
 function otherDimsUpdating(diff){
-	if (player.currentEternityChall !== "eterc7") player.infinityPower = player.infinityPower.plus(DimensionProduction(1).times(diff))
+	if (player.currentEternityChall !== "eterc7") {
+		var InfProduction = DimensionProduction(1)
+		if (player.pSac !== undefined) InfProduction = InfProduction.plus(DimensionProduction(2))
+		player.infinityPower = player.infinityPower.plus(InfProduction.times(diff))
+	}
    	else if (!inNC(4) && player.currentChallenge !== "postc1") player.seventhAmount = player.seventhAmount.plus(DimensionProduction(1).times(diff))
 
    	if (player.currentEternityChall == "eterc7") player.infinityDimension8.amount = player.infinityDimension8.amount.plus(getTimeDimensionProduction(1).times(diff))
    	else {
 		if (ECTimesCompleted("eterc7") > 0) player.infinityDimension8.amount = player.infinityDimension8.amount.plus(DimensionProduction(9).times(diff))
-		player.timeShards = player.timeShards.plus(getTimeDimensionProduction(1).times(diff)).max(getTimeDimensionProduction(1).times(0))
+		var TimeProduction = getTimeDimensionProduction(1)
+		if (player.pSac !== undefined) TimeProduction = TimeProduction.plus(getTimeDimensionProduction(2))
+		player.timeShards = player.timeShards.plus(TimeProduction.times(diff)).max(TimeProduction.times(0))
 	}
 }
 
