@@ -179,7 +179,7 @@ let puCosts = {
 		return Math.pow(4, l + 4)
 	},
 	14: function(l) {
-		return Decimal.pow(3,Math.pow(2, l) - 1)
+		return Decimal.pow(2,Math.pow(2, l) - 1)
 	},
 	21: 256,
 	22: 8,
@@ -191,10 +191,10 @@ let puCosts = {
 	34: 512
 }
 let puCaps = {
-	11: 9,
-	12: 9,
-	13: 10,
-	14: 10
+	11: 100,
+	12: 100,
+	13: 100,
+	14: 100
 }
 
 function buyPU(x,r) {
