@@ -20,7 +20,7 @@ var forceHardReset = false;
 var player
 var metaSave = null
 var modes = {}
-var gameSpeed = 1
+var gameSpeed = 10
 
 function setupInfUpgHTMLandData(){
 	var iut = document.getElementById("preinfupgrades")
