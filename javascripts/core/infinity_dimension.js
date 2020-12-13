@@ -72,7 +72,7 @@ function updateInfinityDimensions() {
 				document.getElementById("infD" + tier).textContent = DISPLAY_NAMES[tier] + " Infinity Dimension x" + shortenMoney(DimensionPower(tier));
 				document.getElementById("infAmount" + tier).textContent = DimensionDescription(tier);
 				document.getElementById("infMax" + tier).textContent = (quantumed ? '' : "Cost: ") + (player.pSac !== undefined ? shortenDimensions(player["infinityDimension" + tier].costAM) : shortenInfDimCosts(getIDCost(tier)) + " IP")
-				if (player.pSac !== undefined ? player.money.gte(player["infinityDimension"+tier].costAM) : player.infinityPoints.gte(getIDCost(tier))) document.getElementById("infMax"+tier).className = "storebtn"
+				if (player.pSac !== undefined ? player.money.gte(player["infinityDimension"+tier].costAM) : player.infinityPoints.gte(getIDCost(tier))) document.getElementById("infMax"+tier).className = "storebtn" //if NGm5 is active (paradoxes), then use Antimatter. else, use Infinity points. We will have to fix this in the future when we incorporate BOTH AM and IP here. 
 				else document.getElementById("infMax" + tier).className = "unavailablebtn"
 				document.getElementById("infRow" + tier).style.visibility = "visible";
 			}
@@ -348,7 +348,10 @@ function updateInfPower() {
 	if (player.currentEternityChall == "eterc7") document.getElementById("infPowPerSec").textContent = "You are getting " +shortenDimensions(DimensionProduction(1))+" Seventh Dimensions per second."
 	else {
 		let r = DimensionProduction(1)
-		if (player.pSac != undefined) r = r.div(getEC12Mult())
+		if (player.pSac != undefined) {
+			r += DimensionProduction(2)
+			r = r.div(getEC12Mult())
+		}
 		document.getElementById("infPowPerSec").textContent = "You are getting " + shortenDimensions(r) + " Infinity Power per second."
 	}
 }
