@@ -402,7 +402,8 @@ newsArray = [//always true
 ["The photons wall seems to be gone, but there's only the bricks of it left. We should maybe do stuff with those bricks, except they might be made out of concentrated time, so that's a bad idea...", true, "am191"],
 ["3000 patches ahead of the main branch, 6 different reset layers, and an additional half year of content", true, "am192"],
 ["Remember the good old days with no softcaps...well the new devs came in and put in too many!", true, "am193"]
-/*NEXT ID: am194*/
+["Anthios and Apeirogon were here. Don't tell Aarex. I SAID DON'T WHAT ARE YOU DO--", true, "am194"]
+/*NEXT ID: am195*/
 ];}
 
 document.addEventListener("visibilitychange", function() {if (!document.hidden) {scrollNextMessage();}}, false);
