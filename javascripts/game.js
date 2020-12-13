@@ -20,7 +20,7 @@ var forceHardReset = false;
 var player
 var metaSave = null
 var modes = {}
-var gameSpeed = 10
+var gameSpeed = 1 //what, exactly, does this change, anyways?
 
 function setupInfUpgHTMLandData(){
 	var iut = document.getElementById("preinfupgrades")
@@ -1606,7 +1606,7 @@ function updateMatterSpeed(){
 	//mv: Matter speed
 	tmp.mv = 1.03 + player.resets/200 + player.galaxies/100
 	if (player.pSac !== undefined) {
-		var exp = 10 / puMults[12](hasPU(12, true, true))
+		var exp = 100 / puMults[12](hasPU(12, true, true)) //I added a 0 here. this is another one of my tests that I will comment about and never remove the comment on. 
 		tmp.mv = Decimal.pow(tmp.mv, exp)
 	}
 }
