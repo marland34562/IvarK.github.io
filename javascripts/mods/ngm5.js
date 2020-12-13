@@ -66,7 +66,7 @@ function isDimUnlocked(d) {
 //Paradox Sacrifices
 function getPxGain() {
 	let r = new Decimal(player.matter.max(player.money).max(1).log10()+1)
-	for (var d = 1; d < 9; d++) r=r.times(Math.pow(player[TIER_NAMES[d]+"Amount"].max(10).log10(), 1))
+	for (var d = 1; d < 9; d++) r=r.times(Math.pow(player[TIER_NAMES[d]+"Amount"].max(10).log10(), 1)) //Hello world! This is the line that needs changing. 
 	return r.floor()
 }
 
